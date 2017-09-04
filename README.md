@@ -10,3 +10,13 @@ This data is aggregated by Subject and activity, and then the mean is derived an
 
 working directory is assumed to be in the folder containing downloaded data.
 
+
+codebook:
+feature_names - Extracted list of feature names
+subjects - List of participants in the study for each activity
+y - list of activity IDs
+x - actual device data
+desired_columns - the columns that we want to keep based on std or mean measurements
+all_data - all of our data combined
+tidy_mean - manipulated mean of measurements for each activity and subject
+
