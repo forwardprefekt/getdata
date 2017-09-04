@@ -7,6 +7,8 @@
 # 5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
+#
+
 # Our Feature Values
 feature_names <-  read.table("./features.txt", stringsAsFactors = FALSE)[,2]
 
@@ -29,7 +31,7 @@ desired_columns<- c(grep("mean()",colnames(x)),grep("std()", colnames(x)))
 all_data <- tbl_df(cbind(subjects,y,x[,desired_columns]))
 
 #create dataset with means of each sample per activity/subject
-tidy_mean<-all_data %>% group_by(ActivityId, SubjectId) %>% summarise_each(funs(mean))
+tidy_mean<-all_data %>% group_by(ActivityId, SubjectId) %>% summarise_all(funs(mean))
 
 #store our new tidy data in a file
-write.csv(tidy_mean, "./tidy_mean_subset.csv",row.names = FALSE)
+write.table(tidy_mean, "./tidy_mean_subset.csv",row.names = FALSE)
