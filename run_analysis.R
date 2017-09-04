@@ -34,4 +34,4 @@ all_data <- tbl_df(cbind(subjects,y,x[,desired_columns]))
 tidy_mean<-all_data %>% group_by(ActivityId, SubjectId) %>% summarise_all(funs(mean))
 
 #store our new tidy data in a file
-write.table(tidy_mean, "./tidy_mean_subset.csv",row.names = FALSE)
+write.table(tidy_mean, "./tidy_mean_subset.txt",row.names = FALSE)
